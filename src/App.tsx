@@ -1,20 +1,13 @@
-import React, { useState } from "react";
-import { generateItems } from "./utils";
+import React from "react";
 import { Header } from "./components/Header";
 import { ItemList } from "./components/ItemList";
 import { ComplexForm } from "./components/ComplexForm";
 import { NotificationSystem } from "./components/NotificationSystem";
 import { AppProvider } from "./providers/AppProvider";
+import { useItemList } from "./hooks/useItemList";
 
 const App: React.FC = () => {
-  const [items, setItems] = useState(generateItems(1000));
-
-  const addItems = () => {
-    setItems((prevItems) => [
-      ...prevItems,
-      ...generateItems(1000, prevItems.length),
-    ]);
-  };
+  const { items, addItems } = useItemList();
 
   return (
     <AppProvider>
