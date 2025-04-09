@@ -11,9 +11,9 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <NotificationProvider>
-      <AuthWithNotification>
-        <ThemeProvider>{children}</ThemeProvider>
-      </AuthWithNotification>
+      <ThemeProvider>
+        <AuthWithNotification>{children}</AuthWithNotification>
+      </ThemeProvider>
     </NotificationProvider>
   );
 };

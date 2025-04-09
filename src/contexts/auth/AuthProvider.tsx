@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { User } from "../../types/user";
 import { AuthContext } from "./AuthContext";
 import { Notification } from "../../types/notification";
-import React from "react";
+import { memo } from "../../@lib/hocs/memo";
 
 type AuthProviderProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ type AuthProviderProps = {
   ) => void;
 };
 
-export const AuthProvider = React.memo(
+export const AuthProvider = memo(
   ({ children, addNotification }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
 

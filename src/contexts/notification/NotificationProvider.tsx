@@ -1,7 +1,6 @@
 import { ReactNode, useCallback, useState } from "react";
 import { Notification } from "../../types/notification";
 import { NotificationContext } from "./NotificationContext";
-import { AuthProvider } from "../auth/AuthProvider";
 
 type NotificationProviderProps = {
   children: ReactNode;
@@ -38,7 +37,7 @@ export const NotificationProvider = ({
         removeNotification,
       }}
     >
-      <AuthProvider addNotification={addNotification}>{children}</AuthProvider>
+      {children}
     </NotificationContext.Provider>
   );
 };
