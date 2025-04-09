@@ -1,9 +1,9 @@
-import { useAppContext } from "../contexts/AppProvider";
+import { useNotificationContext } from "../contexts/notification/useNotificationContext";
 import { renderLog } from "../utils";
 
 export const NotificationSystem: React.FC = () => {
   renderLog("NotificationSystem rendered");
-  const { notifications, removeNotification } = useAppContext();
+  const { notifications, removeNotification } = useNotificationContext();
 
   return (
     <div className="fixed bottom-4 right-4 space-y-2">
@@ -23,7 +23,7 @@ export const NotificationSystem: React.FC = () => {
           {notification.message}
           <button
             onClick={() => removeNotification(notification.id)}
-            className="ml-4 text-white hover:text-gray-200"
+            className="ml-4 text-white hover:text-gray-200 border-5"
           >
             닫기
           </button>
