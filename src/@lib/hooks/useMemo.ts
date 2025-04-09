@@ -14,10 +14,7 @@ export function useMemo<T>(
       deps: _deps,
     };
   } else {
-    if (
-      prev.current.deps.length !== _deps.length ||
-      !_equals(prev.current.deps, _deps)
-    ) {
+    if (!_equals(prev.current.deps, _deps)) {
       prev.current = {
         value: factory(),
         deps: _deps,
