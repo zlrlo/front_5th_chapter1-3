@@ -1,6 +1,7 @@
-import { ReactNode, useCallback, useState } from "react";
+import { ReactNode, useState } from "react";
 import { Notification } from "../../types/notification";
 import { NotificationContext } from "./NotificationContext";
+import { useCallback } from "../../@lib/hooks/useCallback";
 
 type NotificationProviderProps = {
   children: ReactNode;
