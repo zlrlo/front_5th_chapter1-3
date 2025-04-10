@@ -1,14 +1,11 @@
+import { isNonNullObject } from "./isNonNullObject";
+
 export function shallowEquals<T>(objA: T, objB: T): boolean {
   if (Array.isArray(objA) && Array.isArray(objB)) {
     return _shallowEqualsArray(objA, objB);
   }
 
-  if (
-    typeof objA === "object" &&
-    objA !== null &&
-    typeof objB === "object" &&
-    objB !== null
-  ) {
+  if (isNonNullObject(objA) && isNonNullObject(objB)) {
     return _shallowEqualsObject(
       objA as Record<string, unknown>,
       objB as Record<string, unknown>,
