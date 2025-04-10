@@ -8,18 +8,11 @@ export function useMemo<T>(
 ): T {
   const prev = useRef<{ value: T; deps: DependencyList }>();
 
-  if (!prev.current) {
+  if (!prev.current || !_equals(prev.current.deps, _deps)) {
     prev.current = {
       value: factory(),
       deps: _deps,
     };
-  } else {
-    if (!_equals(prev.current.deps, _deps)) {
-      prev.current = {
-        value: factory(),
-        deps: _deps,
-      };
-    }
   }
 
   return prev.current.value;
